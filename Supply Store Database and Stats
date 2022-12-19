@@ -1,0 +1,31 @@
+--Create an art-supply store database
+
+CREATE TABLE art_supplies (id INTEGER PRIMARY KEY, name TEXT, in_stock INTEGER, category TEXT, aisle INTEGER, price INTEGER, on_sale TEXT);
+
+INSERT INTO art_supplies VALUES
+(1, "Palettes", 10, "Painting", 1, 9, "No"),
+(2, "Acrylic_paint", 250, "Painting", 1, 12, "Yes"),
+(3, "Apron", 20, "General", 2, 10, "No"),
+(4, "Oven_clay", 15, "Sculpture", 4, 8, "Yes"),
+(5, "Air-dry_clay", 17, "Sculpture", 4, 7, "Yes"),
+(6, "Canvas", 117, "Painting", 1, 23, "No"),
+(7, "Masonite", 67, "Painting", 1, 18, "No"),
+(8, "Balsa_wood", 85, "Sculpture", 4, 4, "No"),
+(9, "Xacto_knives", 11, "Sculpture", 4, 5, "Yes"),
+(10, "Ink", 35, "Print-Making", 5, 7, "No"),
+(11, "Linoleum", 18, "Print-Making", 5, 3, "No"),
+(12, "Clip-lamps", 5, "General", 2, 12, "No"),
+(13, "Drop-cloths", 5, "General", 2, 23, "Yes"),
+(14, "Pencils", 34, "Drawing", 3, 1, "Yes"),
+(15, "Pens", 28, "Drawing", 3, 2, "Yes"),
+(16, "Erasers", 9, "Drawing", 3, 1, "Yes"),
+(17, "Paper_Pads", 32, "Drawing", 3, 11, "No");
+
+--display the database ordered by price.
+SELECT * FROM art_supplies ORDER BY price desc;
+
+--how many items are in stock in each category?
+SELECT category, SUM(in_stock) FROM art_supplies GROUP BY category;
+
+--what is the avg price of items in the painting section?
+SELECT AVG(price) "avg painting item price" FROM art_supplies where category='Painting';

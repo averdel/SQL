@@ -406,3 +406,24 @@ SELECT MAX(Space_Flight_hr) FROM astronauts;
 SELECT AVG(Space_Flight_hr) FROM astronauts;
 
 /* How many times did space flight hours fall into above-average and below-average zones? */
+
+SELECT COUNT(*),
+    CASE 
+        WHEN Space_Flight_hr >1249 THEN "above average"
+        WHEN Space_Flight_hr <1249 THEN "below average"
+    END as "flight_hr_zone"
+FROM astronauts
+GROUP BY flight_hr_zone;
+
+/* Show all the deaths that occurred on a mission */
+
+SELECT * FROM astronauts WHERE Death_mission NOT IN ("NULL") ORDER BY Death_mission;
+
+/* Who were the female astronauts that died on Challenger mission? */
+
+SELECT * FROM astronauts WHERE gender = ("Female") AND Death_mission LIKE "%challenger%";
+
+/* How many astronauts from each military branch? */
+
+SELECT Military_Branch, COUNT(*) FROM astronauts GROUP BY Military_Branch;
+

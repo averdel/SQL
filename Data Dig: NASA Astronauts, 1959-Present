@@ -426,4 +426,3 @@ SELECT * FROM astronauts WHERE gender = ("Female") AND Death_mission LIKE "%chal
 /* How many astronauts from each military branch? */
 
 SELECT Military_Branch, COUNT(*) FROM astronauts GROUP BY Military_Branch;
-

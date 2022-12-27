@@ -33,6 +33,7 @@ SELECT COUNT(*),
 FROM astronauts
 GROUP BY flight_hr_zone;
 
+
 /* Show all the deaths that occurred on a mission */
 
 SELECT * FROM astronauts WHERE Death_mission NOT IN ("NULL") ORDER BY Death_mission;

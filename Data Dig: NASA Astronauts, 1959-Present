@@ -1,6 +1,6 @@
 /* How many astronauts born in Philadelphia? */
 
-SELECT * FROM astronauts WHERE birth_place IN ("Philadelphia, PA");
+SELECT COUNT(*) FROM astronauts WHERE birth_place IN ("Philadelphia, PA");
 
 /* In which places have more than one astronaut been born? */
 

@@ -1,0 +1,41 @@
+CREATE TABLE actors (id INTEGER PRIMARY KEY, name TEXT, number_of_films INTEGER, final_film TEXT);
+
+INSERT INTO actors VALUES
+    (1, "Joan Crawford", 89, "Trog"),
+    (2, "Jane Russell", 24, "Darker Than Amber"),
+    (3, "Marilyn Monroe", 29, "The Misfits"),
+    (4, "Rock Hudson", 67, "Avalanche"),
+    (5, "Doris Day", 39, "With Six You Get Eggroll"),
+    (6, "Cary Grant", 76, "Walk, Don't Run"),
+    (7, "Tony Curtis", 100, "The Boston Strangler"),
+    (8, "Tippi Hedren", 39, "The Ghost and the Whale"),
+    (9, "James Stewart", 80, "A Tale of Africa"),
+    (10, "Thelma Ritter", 31, "What's So Bad About Feeling Good?");
+    
+CREATE TABLE movies (id INTEGER PRIMARY KEY, title TEXT, release_date INTEGER, genre TEXT, starring_actor_id TEXT);
+
+INSERT INTO movies VALUES
+    (1, "Trog", 1970, "horror", 1),
+    (2, "Darker Than Amber", 1970, "action", 2),
+    (3, "The Misfits", 1961, "drama", 3),
+    (4, "Walk, Don't Run", 1966, "comedy", 6),
+    (5, "Avalanche", 1978, "adventure", 4),
+    (6, "The Boston Strangler", 1968, "drama", 7),
+    (7, "With Six You Get Eggroll", 1968, "comedy", 5),
+    (8, "The Ghost and the Whale", 2017, "mystery", 8),
+    (9, "A Tale of Africa", 1980, "drama", 9),
+    (10, "What's So Bad About Feeling Good?", 1968, "comedy", 10);
+    
+/*Show each actor with the date of their final film, with most recent at the top*/
+SELECT actors.name, movies.release_date
+FROM actors
+INNER JOIN movies
+ON actors.final_film = movies.title
+ORDER BY release_date desc;
+
+/*Create an alphabetical list showing each movie next to its starring actor*/
+SELECT movies.title, actors.name
+FROM movies
+INNER JOIN actors
+ON movies.starring_actor_id = actors.id
+ORDER BY title asc;

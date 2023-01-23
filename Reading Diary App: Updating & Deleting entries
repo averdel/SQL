@@ -1,0 +1,23 @@
+CREATE TABLE reading_diary (id INTEGER PRIMARY KEY, user_id INTEGER, date TEXT, book TEXT, comments TEXT);
+
+INSERT INTO reading_diary VALUES
+    (1, 1, "11/2/22", "Haunted", "Thought-provoking, possible commentary on reality shows, would recommend for fans of horror and sociology."),
+    (2, 1, "11/17/22", "Walden Two", "Slightly boring, underwhelming, probably would not recommend."),
+    (3, 1, "11/25/22", "Paradise", "Need to read more by this author, highly recommend."),
+    (4, 2, "11/5/22", "War and Peace", "Difficult to get through, prefer Tolstoy's shorter stories."),
+    (5, 2, "11/14/22", "Life in a Medieval Castle", "Very informative, presented in easy to understand fashion, need to further research castle architecture."),
+    (6, 3, "11/25/22", "The Lost Art of Dress", "Would highly recommend, inspires one to reflect on clothing/appearance choices and true self."),
+    (7, 3, "12/3/22", "A Mountain of Crumbs", "Moving autobiography touching on poverty, perseverance, family ties. Would recommend."),
+    (8, 3, "12/17/22", "On Moving", "Beautiful collection of thoughts on the risks of relocating by various authors and artists. Would recommend to anyone thinking of making a big life change."),
+    (9, 3, "12/3/22", "On Wings of Diesel", "Includes colorful photos showing rich artistry in India. Would recommend to travellers and creatives for inspiration.");
+SELECT * FROM reading_diary;
+
+UPDATE reading_diary SET comments = "Probably would not recommend." WHERE id = 2;
+
+SELECT * FROM reading_diary;
+
+DELETE FROM reading_diary WHERE id = 4;
+
+SELECT * FROM reading_diary;
+
+
